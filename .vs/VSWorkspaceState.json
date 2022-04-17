@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\ApplyJob",
+    "\\src\\components\\CompanyDashboard",
+    "\\src\\components\\EntryPoint.js",
+    "\\src\\components\\Home",
+    "\\src\\components\\Login",
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Signup"
+  ],
+  "SelectedNode": "\\src\\components\\Signup\\Form.js",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,54 @@
+{
+  "user": [
+    {
+      "UserName": "shubhamkuamr",
+      "UserId": null,
+      "PhoneNumber": "8877327819",
+      "ConnectionType": "aaaaa",
+      "HouseNUmber": 555,
+      "Area": "aaaaaaaaaaaaa",
+      "Status": "Approved ",
+      "id": 79
+    },
+    {
+      "UserName": "shubhamkuamr",
+      "UserId": null,
+      "PhoneNumber": "8877327819",
+      "ConnectionType": "aaaaa",
+      "HouseNUmber": 555,
+      "Area": "aaaaaaaaaaaaa",
+      "Status": "Approved'",
+      "id": 71
+    },
+    {
+      "UserName": "shubhamkuamr",
+      "UserId": null,
+      "PhoneNumber": "8877327819",
+      "ConnectionType": "aaaaa",
+      "HouseNUmber": 555,
+      "Area": "aaaaaaaaaaaaa",
+      "Status": "Approvedh",
+      "id": 72
+    },
+    {
+      "UserName": "ssdxs",
+      "UserId": null,
+      "PhoneNumber": "8674951860",
+      "ConnectionType": "Domestric",
+      "HouseNUmber": null,
+      "Area": "11111111",
+      "Status": "Approved ",
+      "id": 80
+    },
+    {
+      "UserName": "shubhamkuamr",
+      "UserId": null,
+      "PhoneNumber": "2222222222",
+      "ConnectionType": "Domestric",
+      "HouseNUmber": 44444442,
+      "Area": "qq",
+      "Status": "reject",
+      "id": 81
+    }
+  ]
+}

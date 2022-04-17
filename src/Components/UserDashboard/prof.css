@@ -1,0 +1,14 @@
+prof.css
+
+.labels{
+    float: left;
+    font-weight: bold;
+}
+
+.main{
+    padding: 15px;
+}
+
+.prof{
+    font-weight: bold;
+}
