@@ -2,7 +2,7 @@
 
 
 
-<!-- 
+
 By Shubhma Kumar(2090944) :-
 
 1:>  Now I am using fake Api for testing 
@@ -11,7 +11,7 @@ By Shubhma Kumar(2090944) :-
 3:>>"json-server": "json-server --watch db.json --port 3003"
 4:>>npm run json-server
 
- -->
+ 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
