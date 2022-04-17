@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-// import userEvent from "@testing-library/user-event";
-// import Approve from "./approve";
 
-function UserList(props) {
+
+function UserList() {
   const [data, setData] = useState([]);
   //const baseUrl = "http://localhost:62018/api/Job_Data/Get"
   const baseUrl = "http://localhost:3003/user";
 
-  const navigate = useNavigate();
+
 
   const token = localStorage.getItem("token");
   const authAxios = axios.create({
@@ -21,28 +19,26 @@ function UserList(props) {
       Authorization: `Bearer ${token} `,
     },
   });
-  //   const logout = () => {
-  //     localStorage.removeItem("token");
-  //     navigate("/");
-  //   };
+
 
   useEffect(() => {
-    const GetData = async () => {
-      const result = await authAxios.get(baseUrl);
-      setData(result.data);
-    };
     GetData();
   }, []);
 
-  // const DeleteUser = async (id) => {
-  //     await axios.delete(`http://localhost:3003/user/${id}`)
-  //     const GetData = async () => {
-  //         const result = await authAxios.get(baseUrl);
-  //         setData(result.data);
-  //     }
-  //     GetData();
+  const GetData = async () => {
+      const result = await authAxios.get(baseUrl);
+      setData(result.data);
+  };
 
-  // };
+
+
+  const updateStatus=async(obj,status)=>{
+      obj.Status=status
+     // await axios.put(`http://localhost:3003/user/`+obj.id, obj);
+     await axios.put(`http://localhost:3003/user/`+obj.id, obj);
+
+      GetData();
+  }
 
   return (
     <>
@@ -116,19 +112,14 @@ function UserList(props) {
                         <button
                           className="btn btn-success"
                           align="Left"
-                          onClick={() => {
-                            setData({ ...data, Status: "Approve" });
-                            navigate(`/AdminDashboard/Approve/${item.id}`);
-                          }}
+                          onClick={() => {updateStatus(item,'Approved')}}
                         >
                           Approve
                         </button>
                         <button
                           className="btn btn-danger"
                           align="Right"
-                          onClick={() => {
-                            navigate(`/AdminDashboard/Reject/${item.id}`);
-                          }}
+                          onClick={() => {updateStatus(item,'Rejected')}}
                         >
                           Reject
                         </button>
@@ -190,15 +181,10 @@ font-size: 2rem;
 }
 }
 `;
-const Logo = styled.div`
-img {
-height: auto;
-width: 50px;
-}
-`;
+
 const routes = [
   {
-    route: "/",
+    route: "/admindashboard/admindashboard",
     name: "Home",
     icon: <FaHome className="icon" />,
     exact: true,
