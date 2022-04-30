@@ -1,5 +1,5 @@
 {
-  "homepage": "https://Ershubhambhagat.github.io/Water_Billing_Management_System",
+  "homepage": "https://ershubhambhagat.github.io/Water_Billing_Management_System",
   "name": "project",
   "version": "0.1.0",
   "private": true,
@@ -54,7 +54,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-
-    
   }
 }
