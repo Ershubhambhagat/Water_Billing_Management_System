@@ -20,13 +20,36 @@ function EntryPoint() {
 
         <div className={style.nav_menu1}>
         <div className={style.nav_item1}>
-                <NavLink exact to="/" className={style.nav_links1}>
-                    Home
+                <NavLink exact to="userdashboard/UserDashboard/" className={style.nav_links1}>
+                    User Home 
                 </NavLink>
-        </div>  
+        </div>
+
+
+        {/* <div className={style.nav_item1}>
+                <NavLink exact to="AdminDashboard/AdminDashboard" className={style.nav_links1}>
+                    AdminDashboard
+                </NavLink>
+        </div>
+
+
+
+
+        
+        <div className={style.nav_item1}>
+                <NavLink exact to="/UserDashboard/UserDashboard" className={style.nav_links1}>
+                    UserDashboard
+                </NavLink>
+        </div> */}
+      
+
+
+
+
+       
               <div className={style.nav_item1}>
-                <NavLink exact to="/Login/Login2/" className={style.nav_links1}>
-                    Admin Login
+                <NavLink exact to="/AdminDashboard/AdminDashboard" className={style.nav_links1}>
+                    Admin 
                 </NavLink>
                 </div>
             </div>
@@ -35,7 +58,8 @@ function EntryPoint() {
   </div>
  
       <center>
-
+{/*<h2> Water Billing Management System</h2>
+ *<cite title="Source Title">Indias's Largest Water Billing Portal</cite>*/}
 </center>
 
 <center>

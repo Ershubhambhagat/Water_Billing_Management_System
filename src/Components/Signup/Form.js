@@ -9,8 +9,8 @@ const Form = () => {
 const navigate = useNavigate();
   
   const [data, setdata] = useState({Name: '', Email: '',MobileNo: '', UserName: '', Password: '', ConfirmPassword: '' })  
-    //const apiUrl = "http://localhost:18972/api/User/Register";
-    const apiUrl = "http://localhost:3003/user";
+  // const apiUrl = "http://localhost:18972/api/User/Register";
+  const apiUrl = "http://localhost:3003/user";
 
   const Registration = (e) => {  
     e.preventDefault();  
@@ -41,17 +41,7 @@ const navigate = useNavigate();
   
 
 
-  
-  const [values, setValues] = useState({
-    name: "",
-    mobile_number:"",
-    email: "",
-    username: "",
-    password: "",
-    confirm_password: "",
-    
-   
-  });
+
   
   const inputs = [
     {
@@ -59,10 +49,11 @@ const navigate = useNavigate();
       name: "Name",
       type: "text",
       placeholder: "Enter your  Name",
-      errorMessage:
-      "Username should be 3-16 characters and shouldn't include any special character!",
+      // errorMessage:
+      // "Name should be 3-16 characters and shouldn't include any special character or numbers!",
       label: "Name",
-      required: true,
+      // pattern: `^[A-Za-z]{3,16}$`,
+      required:true
      
       },
     
@@ -121,9 +112,6 @@ const navigate = useNavigate();
     },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
 
   
 

@@ -3,14 +3,14 @@ import axios from "axios";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 
 function UserList() {
+  const navigate = useNavigate();
   const [data, setData] = useState([]);
-  //const baseUrl = "http://localhost:62018/api/Job_Data/Get"
+
+  //const baseUrl = "http://localhost:22523/api/NewConnectionApproval/GetRequests";
   const baseUrl = "http://localhost:3003/user";
-
-
 
   const token = localStorage.getItem("token");
   const authAxios = axios.create({
@@ -20,33 +20,52 @@ function UserList() {
     },
   });
 
-
   useEffect(() => {
     GetData();
   }, []);
 
   const GetData = async () => {
-      const result = await authAxios.get(baseUrl);
-      setData(result.data);
+    const result = await authAxios.get(baseUrl);
+    setData(result.data);
   };
 
+  // const updateStatus=async(obj,Status)=>{
+  //     const id=obj.id;
+  //     obj.Status=Status
 
+  //    //await authAxios.put("http://localhost:22523/api/NewConnectionApproval/UpdateStatus",obj,{params:{
+  //    await authAxios.put("http://localhost:3003/user",obj,{params:{
 
-  const updateStatus=async(obj,status)=>{
-      obj.Status=status
-     // await axios.put(`http://localhost:3003/user/`+obj.id, obj);
-     await axios.put(`http://localhost:3003/user/`+obj.id, obj);
+  //     id
+  //   }})
+  //   .then((response)=>{
+  //     if(response.data.statusCode===200)
+  //     {
+  //        alert('Status Updated');
+  //        navigate("/AdminDashboard/AdminWaterConnApp");
+  //     }
+  //     else
+  //        alert('Update failed');
+  //   })
 
-      GetData();
-  }
+  //     GetData();
+  // }
 
+  const updateStatus = async (obj, status) => {
+    obj.Status = status;
+    // await axios.put(`http://localhost:3003/user/`+obj.id, obj);
+    await axios.put(`http://localhost:3003/user/` + obj.id, obj);
+    alert("Status Updated");
+
+    GetData();
+  };
   return (
     <>
       <div>
         <Header>
           <Nav>
             <ul>
-              {routes.map((link) => (
+              {routes.map(link => (
                 <NavLink
                   exact={link.exact}
                   activeClassName="active"
@@ -59,6 +78,11 @@ function UserList() {
                   </li>
                 </NavLink>
               ))}
+            </ul>
+            <ul>
+              <a href="http://localhost:3000/AdminDashboard/AdminDashboard">
+                Back to Dashboard
+              </a>
             </ul>
           </Nav>
         </Header>
@@ -93,7 +117,7 @@ function UserList() {
                         <div className="col-6">
                           <label>House No: </label>
                         </div>
-                        <div className="col-6">{item.HouseNUmber}</div>
+                        <div className="col-6">{item.ConnectionType}</div>
                       </div>
                       <div className="form-group row">
                         <div className="col-6">
@@ -112,14 +136,18 @@ function UserList() {
                         <button
                           className="btn btn-success"
                           align="Left"
-                          onClick={() => {updateStatus(item,'Approved')}}
+                          onClick={() => {
+                            updateStatus(item, "Approved");
+                          }}
                         >
                           Approve
                         </button>
                         <button
                           className="btn btn-danger"
                           align="Right"
-                          onClick={() => {updateStatus(item,'Rejected')}}
+                          onClick={() => {
+                            updateStatus(item, "Rejected");
+                          }}
                         >
                           Reject
                         </button>
@@ -137,10 +165,10 @@ function UserList() {
 }
 export default UserList;
 const Header = styled.header`
-background-color: #1f5156;
-position: sticky;
-top: 0;
-z-index: 100;
+  background-color: #1f5156;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 const Nav = styled.nav`
 color: white;
@@ -189,5 +217,4 @@ const routes = [
     icon: <FaHome className="icon" />,
     exact: true,
   },
-
 ];

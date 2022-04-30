@@ -1,0 +1,47 @@
+.form {
+    background-color: rgb(180, 182, 174);
+    padding: 10px;
+    border-radius: 10px;
+    border-style: groove;
+    justify-content: center;
+    width: 1000px;
+    margin: 20px auto;
+  }
+  .form1Input {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .form1Input label {
+    color: black;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 28px;
+  }
+  .grid_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form1_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    justify-content: center;
+  }
+  
+  .heading {
+    color: rgb(116, 10, 10);
+    text-align: center;
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(
+      to right,
+      rgba(132, 250, 176, 1),
+      rgba(143, 211, 244, 1)
+    );
+  }

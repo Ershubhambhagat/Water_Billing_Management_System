@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AdminDashboard",
+    "\\AdminDashboard\\EditUser",
+    "\\EntrytPoint.js",
+    "\\Login",
+    "\\Signup",
+    "\\UserDashboard\\UserConnection"
+  ],
+  "SelectedNode": "\\AdminDashboard\\AdminWaterConnApp.js",
+  "PreviewInSolutionExplorer": false
+}

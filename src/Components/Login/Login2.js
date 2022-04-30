@@ -5,31 +5,22 @@ import axios from "axios";
 
 function Login2() {
     const [data, setdata] = useState({username: '', password: '' })  
-   // const apiUrl = "http://localhost:22523/api/Admin/Login";
-    const apiUrl = "http://localhost:3003/user";
+    //const apiUrl = "http://localhost:22523/api/Admin/Login"; 
+    const apiUrl = "http://localhost:3003/user";  
+
     const navigate = useNavigate();
     const login = (e) => {
         e.preventDefault();  
         debugger;  
         const data1 = {username: data.username, Password: data.password };  
-    //     axios.post(apiUrl, data1)  
-    //     .then((result) => {
-    //         debugger;  
-    //         console.log(result.data);  
-    //         const token = localStorage.setItem('token',result.data);
-    //         navigate('/AdminDashboard/AdminDashboard');
-    //     })
-    //     .catch((res)=>{
-    //     alert("username or password is wrong");
-    //   })
             axios.post(apiUrl,data1).then((result)=>{
                 //debugger
 
                     if(result.data.statusCode===200)
                     {
                         console.log(result.data.token);  
-                        const token = localStorage.setItem('token',result.data);
-                        navigate('  ');
+                        const token = localStorage.setItem('token',result.data.token);
+                        navigate('/AdminDashboard/AdminDashboard');
                     }
                     else 
                         alert('Username or Password is incorrect');

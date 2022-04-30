@@ -1,6 +1,16 @@
 {
   "user": [
     {
+      "Name": "Shubham",
+      "Email": "Shubham@gmail.com",
+      "MobileNo": "1111111111",
+      "UserName": "khapra",
+      "Password": "Shubham@123",
+      "ConfirmPassword": "Shubham@123",
+      "id": 82,
+      "Status": "Approved"
+    },
+    {
       "UserName": "shubhamkuamr",
       "UserId": null,
       "PhoneNumber": "8877327819",
@@ -37,18 +47,111 @@
       "ConnectionType": "Domestric",
       "HouseNUmber": null,
       "Area": "11111111",
-      "Status": "Approved ",
+      "Status": "Approved",
       "id": 80
     },
     {
-      "UserName": "shubhamkuamr",
+      "Name": "Shubham",
+      "Email": "Shubham@gmail.com",
+      "MobileNo": "1111111111",
+      "UserName": "khapra",
+      "Password": "Shubham@123",
+      "ConfirmPassword": "Shubham@123",
+      "id": 82
+    },
+    {
+      "UserName": "Shubham",
+      "UserId": null,
+      "PhoneNumber": "1111111111",
+      "ConnectionType": "Shubham@123",
+      "HouseNUmber": 11,
+      "Area": "shubham",
+      "Status": "Rejected",
+      "id": 83
+    },
+    {
+      "UserName": "wswws",
       "UserId": null,
       "PhoneNumber": "2222222222",
-      "ConnectionType": "Domestric",
-      "HouseNUmber": 44444442,
-      "Area": "qq",
-      "Status": "reject",
-      "id": 81
+      "ConnectionType": "s2",
+      "HouseNUmber": null,
+      "Area": "22ee",
+      "Status": "Pending",
+      "id": 84
+    },
+    {
+      "id": 85
+    },
+    {
+      "id": 86
+    },
+    {
+      "id": 87
+    },
+    {
+      "id": 88
+    },
+    {
+      "id": 89
+    },
+    {
+      "username": "khapra",
+      "Password": "Shubham@123\"",
+      "id": 90
+    },
+    {
+      "username": "khapra",
+      "Password": "Shubham@123\"",
+      "id": 91
+    },
+    {
+      "username": "khapra",
+      "Password": "Shubham@123\"",
+      "id": 92
+    },
+    {
+      "UserName": "khapra",
+      "Password": "Shubham@123",
+      "id": 93
+    },
+    {
+      "UserName": "khapra",
+      "Password": "Shubham@123",
+      "id": 94
+    },
+    {
+      "Name": "Bhagat",
+      "Email": "Bhagat@gmail.com",
+      "MobileNo": "1111111111",
+      "UserName": "Bhagat",
+      "Password": "Bhagat@123",
+      "ConfirmPassword": "Bhagat@123",
+      "id": 95
+    },
+    {
+      "UserName": "Bhagat",
+      "Password": "Bhagat@123",
+      "id": 96
+    },
+    {
+      "UserName": "Bhagat",
+      "Password": "Bhagat@123",
+      "id": 97
+    },
+    {
+      "username": "Bhagat",
+      "Password": "Bhagat@123",
+      "id": 98
+    },
+    {
+      "UserName": "wwww",
+      "UserId": null,
+      "PhoneNumber": "2222222222",
+      "ConnectionType": "Commercial",
+      "HouseNUmber": "22",
+      "Area": "qwq",
+      "Status": "Pending",
+      "id": 99
     }
   ]
 }

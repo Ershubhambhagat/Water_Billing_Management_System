@@ -37,9 +37,7 @@ const AdminDashboard = () => {
 
         <Header>
           <Nav>
-            {/* <Logo>
-              <img src="/images/logo.jpg" alt="logo" />
-            </Logo> */}
+            
             <ul>
               {routes.map((link) => (
                 <NavLink
@@ -54,7 +52,11 @@ const AdminDashboard = () => {
                   </li>
                 </NavLink>
               ))}
-              <button onClick={Logout}>Logout</button>
+              
+              <h4>Welcome Admin</h4>
+            </ul>
+            <ul>
+            <button style={{"color":"red"}}onClick={Logout}>Logout</button>
             </ul>
             
           </Nav>
@@ -99,12 +101,12 @@ const AdminDashboard = () => {
                             <div className="rotate">
                                 <div className=" fa fa-comments fa-4x" ></div>
                             </div>
-                            <div className="text-uppercase">View Bills</div><br></br><br></br><br></br>
+                            <div className="text-uppercase">Generate User Bills</div><br></br><br></br><br></br>
                             <h1 className="display-4"> </h1>
                             <div className="btn1">
                                 <left><button className="btn btn-danger" onClick={()=>{
                                         navigate("/AdminDashboard/UserBillSave/UserBillSave");
-                                    }}>User Bill</button></left>
+                                    }}>Generate</button></left>
                             </div>
                         </div>
                     </div>

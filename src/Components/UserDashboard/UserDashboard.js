@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const navigate = useNavigate();
+  const userName=localStorage.getItem('userName');
   const Logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
@@ -54,7 +55,12 @@ const UserDashboard = () => {
                   </li>
                 </NavLink>
               ))}
-              <button onClick={Logout}>Logout</button>
+
+              <h4>Welcome {userName}</h4>
+              
+            </ul>
+            <ul>
+            <button style={{"color":"red"}} onClick={Logout}>Logout</button>
             </ul>
             
           </Nav>
@@ -73,10 +79,8 @@ const UserDashboard = () => {
                             <h6 className="text-uppercase">View My Bill</h6><br></br><br></br><br></br>
                             <h1 className="display-4"> </h1>
                             <button className="btn btn-danger" onClick={()=>{
-                                        navigate(
-                                          "/UserDashboard/UserBill/UserBill"
-                                        );
-                                    }}>Pay Bill</button>
+                                        navigate("/UserBill/Userbill");
+                                    }}>View Bill</button>
 
                         </div>
                     </div>

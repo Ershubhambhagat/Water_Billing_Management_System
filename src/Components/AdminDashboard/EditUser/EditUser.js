@@ -15,14 +15,14 @@ const EditUser = () => {
     UserName: "",
   });
   const { Name, MobileNo, Email, UserName } = user;
-  const onInputChange = (e) => {
+  const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
   useEffect(() => {
     loadUser();
   }, []);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
 
     debugger;
@@ -39,17 +39,17 @@ const EditUser = () => {
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Edit A User</h2>
-        <form onSubmit={(e) => onSubmit(e)}>
+        <form onSubmit={e => onSubmit(e)}>
           <div className="form-group">
             <h4>Name</h4>
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your Name"
+              placeholder="Enter Name"
               lable="Name"
               name="Name"
               value={Name}
-              onChange={(e) => onInputChange(e)}
+              onChange={e => onInputChange(e)}
             />
           </div>
           <br></br>
@@ -58,12 +58,12 @@ const EditUser = () => {
             <h4>Mobile No</h4>
 
             <input
-              type="tel"
+              type="Number"
               className="form-control form-control-lg"
-              placeholder="Enter Your Mobile No"
+              placeholder="Enter Mobile No"
               name="MobileNo"
               value={MobileNo}
-              onChange={(e) => onInputChange(e)}
+              onChange={e => onInputChange(e)}
             />
           </div>
           <br></br>
@@ -72,10 +72,10 @@ const EditUser = () => {
             <input
               type="email"
               className="form-control form-control-lg"
-              placeholder="Enter Your Mobile No"
+              placeholder="Enter  Email Id "
               name="Email"
               value={Email}
-              onChange={(e) => onInputChange(e)}
+              onChange={e => onInputChange(e)}
             />
           </div>
           <br></br>
@@ -84,10 +84,10 @@ const EditUser = () => {
             <input
               type="text"
               className="form-control form-control-lg"
-              placeholder="Enter Your UserName "
+              placeholder="Enter UserName "
               name="UserName"
               value={UserName}
-              onChange={(e) => onInputChange(e)}
+              onChange={e => onInputChange(e)}
             />
           </div>
           <br></br>

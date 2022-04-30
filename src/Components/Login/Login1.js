@@ -4,15 +4,15 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login1() {
-    const [data, setdata] = useState({username: '', password: '' })  
-    //const apiUrl = "http://localhost:18972/api/User/Login";
-    const apiUrl = "http://localhost:3003/user";
+    const [data, setdata] = useState({UserName: '', Password: '' })  
+    //const apiUrl = "http://localhost:18972/api/User/Login";  
+    const apiUrl = "http://localhost:3003/user";  
 
     const navigate = useNavigate();
     const login = (e) => {
         e.preventDefault();  
         debugger;  
-        const data1 = {username: data.username, Password: data.password };  
+        const data1 = {UserName: data.UserName, Password: data.Password };  
     //     axios.post(apiUrl, data1)  
     //     .then((result) => {
     //         debugger;  
@@ -31,8 +31,9 @@ function Login1() {
                 {
                     console.log(result.data.token);  
                     console.log(result.data.userId);
-                    const token = localStorage.setItem('token',result.data.token);
-                    const userId=localStorage.setItem('userId',result.data.userId);
+                   // const token = localStorage.setItem('token',result.data.token);
+                   // const userId=localStorage.setItem('userId',result.data.userId);
+                   // const UserName=localStorage.setItem('userName',result.data.UserName);
                     navigate('/UserDashboard/UserDashboard');
                 }
                 else 
@@ -63,7 +64,7 @@ function Login1() {
 
                             <div className="text-center">
                              
-                            <h4 className="mt-1 mb-5 pb-1">Welcome to user Login</h4>
+                            <h4 className="mt-1 mb-5 pb-1">Welcome to User Login</h4>
                             </div>
 
                             <form onSubmit={login}>
@@ -71,13 +72,13 @@ function Login1() {
 
                             <div className="form-outline mb-4">
                             <label className="form-label" for="form2Example11">Username</label>
-                                <input type="text" id="form2Example11" className="form-control" onChange={onChange} name='username' value={data.username} placeholder="UserName"/>
+                                <input type="text" id="form2Example11" className="form-control" onChange={onChange} name='UserName' value={data.UserName} placeholder="UserName"/>
                                 
                             </div>
 
                             <div className="form-outline mb-4">
                             <label className="form-label" for="form2Example22">Password</label>
-                                <input type="password" id="form2Example22" className="form-control" onChange={onChange} name='password' placeholder='Password' value={data.password} />
+                                <input type="Password" id="form2Example22" className="form-control" onChange={onChange} name='Password' placeholder='Password' value={data.Password} />
                                
                             </div>
 

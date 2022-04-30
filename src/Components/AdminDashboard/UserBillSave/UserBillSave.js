@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled, { createGlobalStyle, css } from "styled-components";
-import { ReactDOM } from "react";
+import swal from "sweetalert";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import CalcBill from "./CalcBill";
+import { useNavigate } from "react-router";
+
 const GlobalStyle = createGlobalStyle`
 html
   {
@@ -80,132 +80,142 @@ const StyledButton = styled.button`
   box-sizing: border-box;
 `;
 
+const StyledError = styled.div`
+  color: #2dd9fd;
+  font-weight: 800;
+  margin: 0px 0px 40px 0px;
+`;
+
 const initialState = {
-  UserId: "",
-  Month: "",
-  WaterMeterReading: "",
-  Amount: "",
+  userId: "",
+  month: "",
+  reading: "",
 };
 
-function Contact_us() {
+function CalculateUserBill(props) {
   const navigate = useNavigate();
-
   const [state, setstate] = useState(initialState);
-  // const [error, setError] = useState("");
-  const [data, setdata] = useState({
-    UserId: "",
-    Month: "",
-    WaterMeterReading: "",
-    Amount: "",
-  });
-  // const apiUrl = "http://localhost:62018/api/Query/UserQuery";
-  const apiUrl = "http://localhost:3003/user/";
-  const QueryPost = (e) => {
+  const [error, setError] = useState("");
+  const [data, setdata] = useState({ UserId: "", Month: "", Reading: "" });
+  // const apiUrl = "http://localhost:58745/api/Bill/CalculateBill";
+  const apiUrl = "http://localhost:3003/user";
+
+  const CalculateBill = e => {
     e.preventDefault();
     debugger;
 
-    // navigate("/AdminDashboard/AdminDashboard");
+    const UserId = parseInt(data.UserId);
+    const Month = data.Month;
+    const Reading = parseInt(data.Reading);
 
-    const data1 = {
-      UserId: data.UserId,
-      Month: data.Month,
-      WaterMeterReading: data.WaterMeterReading,
-
-      Amount: data.Amount,
-    };
-
-    axios.post(apiUrl, data1).then((result) => {
-      debugger;
-      console.log(result.data);
-      //const token = localStorage.setItem('token',result.data);
-      // if (result.data.Status === "Invalid") alert("Invalid User");
-      // else props.history.push("/UserDashboard/UserDashboard");
-    });
+    console.log(UserId, Month, Reading);
+    axios
+      .post(apiUrl, null, {
+        params: {
+          UserId,
+          Month,
+          Reading,
+        },
+      })
+      .then(result => {
+        debugger;
+        console.log(result.data);
+        if (result.data.statusCode === 200) {
+          alert(
+            "User Bill Amount Saved Successfully for userId:" +
+              UserId +
+              ", Amount: " +
+              result.data.amount
+          );
+          navigate("/AdminDashboard/AdminDashboard");
+        } else alert("Please enter the correct details");
+      });
   };
-  const onChange = (e) => {
+  const onChange = e => {
     e.persist();
     debugger;
     setdata({ ...data, [e.target.name]: e.target.value });
   };
 
-  // function amountcalc(a, WaterMeterReading) {
-  //   console.log("water meter ", WaterMeterReading);
-  //   console.log("type>>>", WaterMeterReading.type());
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(state);
 
-  //   const Amount = a * WaterMeterReading;
-  //   console.log("AMOUNT=>>", Amount);
-  //   return Amount;
-  //   // const Amount = 44;
-  // }
+    for (let key in state) {
+      if (state[key] === "") {
+        setError(`You must provide the ${key}`);
+        return;
+      }
+    }
 
-  // For calculate bill
+    swal({
+      title: "Thank You",
+      text: "You have Succuessfully submitted the form",
+      icon: "success",
+      button: "OK",
+    });
 
-  function calculateBill() {
-    data.Amount = 5 * data.WaterMeterReading;
+    setError(``);
+  };
 
-    console.log(data.Amount);
-
-    return data.Amount;
-  }
   return (
     <>
       <GlobalStyle />
       <StyledFormWrapper>
-        <StyledForm onSubmit={QueryPost}>
+        <StyledForm onSubmit={CalculateBill}>
           <h2>User Bill</h2>
+
           {/* For Name */}
-          <label htmlFor="name">User Id </label>
+
+          <label htmlFor="UserId">User Id</label>
           <StyledInput
             type="number"
             name="UserId"
-            value={state.UserId}
+            value={state.userId}
             value={data.UserId}
             onChange={onChange}
             required
           />
           {/* For Email */}
-          <label htmlFor="name">Month</label>
+          <label htmlFor="Month">Month</label>
           <StyledInput
-            type="Month"
+            type="month"
             name="Month"
-            // value={state.Month}
+            value={state.month}
             value={data.Month}
             onChange={onChange}
             required
           />
           {/* For Message */}
-          <label htmlFor="message">Water Meter Reading</label>
+          <label htmlFor="Reading">Water Meter Reading</label>
           <StyledInput
-            name="WaterMeterReading"
+            name="Reading"
             type="number"
-            value={state.WaterMeterReading}
-            value={data.WaterMeterReading}
+            value={state.reading}
+            value={data.Reading}
             onChange={onChange}
             required
           />
 
           {/* For Error Message */}
-          <StyledButton type="Submit" onClick={calculateBill}>
-            calculate Bill
-          </StyledButton>
 
-          {/* <input>amout is {CalcBill(3, 78)}</input> */}
-          <label htmlFor="message">Amount {data.Amount}</label>
+          {error && (
+            <StyledError>
+              <p>{error}</p>
+            </StyledError>
+          )}
 
-          <StyledInput
-            name="Amount"
-            type="number"
-            // onClick={amountcalc}
-            // onChange={calculateBill}
-            value={state.Amount}
-            // value={data.Amount()}
-            placeholder={data.Amount}
-            disabled
-          />
+          <StyledButton type="Submit">Calculate Bill</StyledButton>
+          <a
+            style={{ color: "red" }}
+            href="http://localhost:3000/AdminDashboard/AdminDashboard"
+          >
+            Back to Dashboard
+          </a>
         </StyledForm>
       </StyledFormWrapper>
     </>
   );
 }
 
-export default Contact_us;
+export default CalculateUserBill;
